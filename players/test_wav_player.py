@@ -24,15 +24,3 @@ def test_should_not_play_sound():
 	with pt.raises(FileNotFoundError):
 		player.load("./notfound.wav")
 	player.play()
-
-# def test_should_play_sound():
-# 	player = WAVPlayer()
-# 	player.load("./rebola_pai.wav")
-# 	player.play()
-# 	player.stop()
-#
-# def test_should_stop_sound():
-# 	player = WAVPlayer()
-# 	player.load("./rebola_pai.wav")
-# 	player.play()
-# 	player.stop()
