@@ -6,13 +6,17 @@ jobs:
       before_install:
         - sudo apt-get install -y python3-dev libasound2-dev
         - sudo apt install libsdl2-dev libfreetype6-dev libsdl2-mixer-dev libsdl2-image-dev libsdl2-ttf-dev libjpeg-dev libpng-dev libportmidi-dev
+        - pip install --user codecov
     - name: "Python 3.7.4 on macOS"
       os: osx
       osx_image: xcode11.2  # Python 3.7.4 running on macOS 10.14.4
       language: shell      # 'language: python' is an error on Travis CI macOS
       before_install:
         - python -m pip install venvdotapp
+        - pip install --user codecov
 install:
   - 'pip install pipenv'
   - 'pipenv sync'
 script: 'python -m pytest'
+after_success:
+  - codecov --file coverage/lcov.info --disable search
