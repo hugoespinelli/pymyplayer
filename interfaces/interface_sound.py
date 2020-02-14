@@ -32,6 +32,14 @@ class InterfaceSound(ABC):
 		pass
 
 	@abstractmethod
+	def pause(self):
+		"""
+		Method that will be played when user call pause button
+		:return:
+		"""
+		pass
+
+	@abstractmethod
 	def show_info(self):
 		"""
 		Method needed to show information about audio file. They are:

@@ -22,11 +22,13 @@ def render():
 
 	play_btn = tk.Button(window, text='Play', command=lambda: thread.run(ThreadPlayer.PLAY, player), state=tk.DISABLED)
 	stop_btn = tk.Button(window, text='Stop', command=lambda: thread.run(ThreadPlayer.STOP, player), state=tk.DISABLED)
-	load_btn = tk.Button(window, text='Load', command=lambda: browse_audio([play_btn, stop_btn]))
+	pause_btn = tk.Button(window, text='Pause', command=lambda: thread.run(ThreadPlayer.PAUSE, player), state=tk.DISABLED)
+	load_btn = tk.Button(window, text='Load', command=lambda: browse_audio([play_btn, stop_btn, pause_btn]))
 
 	play_btn.grid(row=0, column=0, padx=10, pady=1)
-	stop_btn.grid(row=0, column=1, padx=10, pady=1)
-	load_btn.grid(row=0, column=3, padx=10, pady=1)
+	pause_btn.grid(row=0, column=1, padx=10, pady=1)
+	stop_btn.grid(row=0, column=2, padx=10, pady=1)
+	load_btn.grid(row=0, column=4, padx=10, pady=1)
 
 	window.mainloop()
 

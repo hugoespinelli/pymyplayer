@@ -9,6 +9,7 @@ class ThreadPlayer:
 
 	PLAY = 'play'
 	STOP = 'stop'
+	PAUSE = 'pause'
 
 	def __init__(self):
 		self.thread = None
@@ -26,7 +27,7 @@ class ThreadPlayer:
 		self.thread = threading.Thread(target=player_func, daemon=True)
 		self.thread.start()
 
-		if command == ThreadPlayer.STOP:
+		if command == ThreadPlayer.STOP or command == ThreadPlayer.PAUSE:
 			self.thread.join()
 			self.thread = None
 

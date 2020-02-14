@@ -8,6 +8,10 @@ class WAVWrongTypeError(Exception):
 	pass
 
 
+class WAVFileNotLoaded(Exception):
+	pass
+
+
 class WAVPlayer(InterfaceSound):
 	"""
 	Class that interact with wav extensions audio files
@@ -30,19 +34,19 @@ class WAVPlayer(InterfaceSound):
 		self._wave = sa.WaveObject.from_wave_read(self._wave_read)
 
 	def play(self):
-		if self._wave is not None:
-			self._play_buffer = self._wave.play()
-			self._is_active = True
+		if self._wave is None:
+			raise WAVFileNotLoaded
 
-			while True:
-				if self._is_active == False:
-					break
-				self._play_buffer.wait_done()
+		self._play_buffer = self._wave.play()
+		self._is_active = True
 
 	def stop(self):
 		if self._is_active:
 			self._is_active = False
 			self._play_buffer.stop()
+
+	def pause(self):
+		pass
 
 	def show_info(self):
 		print('play')
