@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.com/hugoespinelli/pymyplayer.svg?branch=master)](https://travis-ci.com/hugoespinelli/pymyplayer)
+[![codecov](https://codecov.io/gh/hugoespinelli/pymyplayer/branch/master/graph/badge.svg)](https://codecov.io/gh/hugoespinelli/pymyplayer)
 # pymyplayer
 
 A simple audio media player to apply good python pratices. It contains:
