@@ -2,7 +2,11 @@ import pygame as pg
 from interfaces.interface_sound import  InterfaceSound
 from utils import get_file_extension
 
-pg.mixer.init()
+try:
+	pg.mixer.init()
+except:
+	print("Audio driver not found!")
+
 
 class MP3WrongTypeError(Exception):
 	pass
