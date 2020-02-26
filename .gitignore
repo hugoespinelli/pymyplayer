@@ -130,3 +130,4 @@ dmypy.json
 *.wav
 *.mp3
 .idea/
+.vscode/
